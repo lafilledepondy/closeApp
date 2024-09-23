@@ -1,6 +1,10 @@
+# WORKING ON #
+
 import os
 import tkinter as tk
 import threading
+import pyautogui
+import time
 
 w = 150
 h = 150
@@ -31,8 +35,16 @@ def countdown_and_close(process_name):
     countdown_window.destroy()
     close_process(process_name)
 
-    #time.sleep(3) 
-    #subprocess.Popen([f"{process_name}"])
+    # Give some time for the application to close before attempting to click
+    time.sleep(3) 
+
+    # Simulate clicking on the "drop call" button
+    drop_call_button = pyautogui.locateCenterOnScreen('drop_call_button.png')
+    if drop_call_button:
+        pyautogui.click(drop_call_button)
+        print("Call dropped successfully.")
+    else:
+        print("Drop call button not found.")
 
 
 def close_process(process_name):
@@ -41,7 +53,7 @@ def close_process(process_name):
 
     if pid:
         os.system(f"kill {pid}")
-        print(f"Closed {process_name})")
+        print(f"Closed {process_name}")
     else:
         print(f"Process {process_name} not found")
 

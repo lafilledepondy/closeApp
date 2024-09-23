@@ -17,6 +17,10 @@ This Python script displays a countdown window using Tkinter before terminating 
 2. Run the Script: 
     
     `./run.sh`
+    
+    or
+
+    `python3 closeApp.py` 
 
 3. Countdown Window:
     * A Tkinter window titled "Tata" will appear with a countdown displayed in a large font.
